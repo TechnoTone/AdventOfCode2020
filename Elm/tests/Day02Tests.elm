@@ -1,7 +1,7 @@
 module Day02Tests exposing (tests)
 
 import Day02 exposing (PasswordSpec)
-import Expect exposing (Expectation, equal, fail)
+import Expect
 import Test exposing (Test, describe, test)
 
 

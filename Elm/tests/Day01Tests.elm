@@ -1,7 +1,7 @@
 module Day01Tests exposing (tests)
 
 import Day01
-import Expect exposing (Expectation, equal, fail)
+import Expect
 import Test exposing (Test, describe, test)
 
 
