@@ -1,0 +1,6 @@
+﻿**/.idea/
+**/elm-stuff/
+**/.vs/
+**/bin/
+**/obj/
+*.DotSettings.user
