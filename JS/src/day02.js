@@ -3,7 +3,7 @@ module.exports.part1 = function (input) {
     const parts = s.split(" ");
     const min = parseInt(parts[0].split("-")[0]);
     const max = parseInt(parts[0].split("-")[1]);
-    const letter = parts[1].slice(0, 1);
+    const letter = parts[1][0];
     const password = parts[2];
 
     const count = charCount(password, letter);
@@ -27,12 +27,9 @@ module.exports.part2 = function (input) {
     const parts = s.split(" ");
     const p1 = parseInt(parts[0].split("-")[0]);
     const p2 = parseInt(parts[0].split("-")[1]);
-    const letter = parts[1].slice(0, 1);
+    const letter = parts[1][0];
     const password = parts[2];
 
-    return (
-      (password.slice(p1 - 1, p1) === letter) !==
-      (password.slice(p2 - 1, p2) === letter)
-    );
+    return (password[p1 - 1] === letter) !== (password[p2 - 1] === letter);
   }).length;
 };

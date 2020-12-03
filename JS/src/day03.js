@@ -22,7 +22,7 @@ function traverse(input, dx, dy) {
   while (y < height) {
     x = (x + dx) % width;
     y += dy;
-    if (y < height && input[y].slice(x, x + 1) === "#") trees++;
+    if (y < height && input[y][x] === "#") trees++;
   }
 
   return trees;
