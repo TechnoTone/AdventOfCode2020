@@ -1,0 +1,27 @@
+{
+  "name": "adventofcode2020_js",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechnoTone/AdventOfCode2020_JS.git"
+  },
+  "author": "TechnoTone",
+  "license": "ISC",
+  "keywords": [
+    "adventofcode"
+  ],
+  "bugs": {
+    "url": "https://github.com/TechnoTone/AdventOfCode2020_JS/issues"
+  },
+  "homepage": "https://github.com/TechnoTone/AdventOfCode2020_JS#readme",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "@jest/globals": "^26.6.2"
+  },
+  "dependencies": {
+  }
+}
