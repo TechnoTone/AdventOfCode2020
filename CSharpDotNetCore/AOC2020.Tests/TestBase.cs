@@ -31,6 +31,9 @@ namespace AOC2020.Tests
             internal List<int> linesOfIntegers() =>
                 linesOfStrings().ConvertAll(int.Parse);
 
+            internal List<long> linesOfLongs() =>
+                linesOfStrings().ConvertAll(long.Parse);
+
             internal List<string> commaSeparatedStrings() =>
                 readAllText().Split(',').ToList();
 
