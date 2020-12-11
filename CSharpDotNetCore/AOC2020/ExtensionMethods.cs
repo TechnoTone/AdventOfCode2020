@@ -20,6 +20,9 @@ namespace AOC2020
     {
         public static List<long> ParseCommaSeparatedIntegers(this string input) =>
             input.Split(',').ToList().ConvertAll(long.Parse);
+
+        public static string[] Lines(this string input) =>
+            input.Replace("\r", "").Split("\n");
     }
 
     public static class PointExtensions
