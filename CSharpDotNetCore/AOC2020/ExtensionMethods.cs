@@ -53,6 +53,8 @@ namespace AOC2020
                 case WireDirection.Right:
                     p.Y++;
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
         }
 
@@ -72,25 +74,32 @@ namespace AOC2020
                 case Direction.Right:
                     p.X++;
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
         }
 
-        public static void Move(this ref Point p, CompassDirection direction)
+        public static void Move(this ref Point p, CompassDirection direction) => 
+            p.Move(direction, 1);
+
+        public static void Move(this ref Point p, CompassDirection direction, int distance)
         {
             switch (direction)
             {
                 case CompassDirection.North:
-                    p.Y++;
+                    p.Y += distance;
                     break;
                 case CompassDirection.South:
-                    p.Y--;
+                    p.Y -= distance;
                     break;
                 case CompassDirection.West:
-                    p.X--;
+                    p.X -= distance;
                     break;
                 case CompassDirection.East:
-                    p.X++;
+                    p.X += distance;
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
         }
 
@@ -146,6 +155,33 @@ namespace AOC2020
         public static string ToSimpleString(this Point p) => $"{p.X},{p.Y}";
     }
 
+    public static class DirectionExtensions
+    {
+        public static CompassDirection TurnLeft(this CompassDirection direction)
+        {
+            return direction switch
+            {
+                CompassDirection.North => CompassDirection.West,
+                CompassDirection.South => CompassDirection.East,
+                CompassDirection.West => CompassDirection.South,
+                CompassDirection.East => CompassDirection.North,
+                _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+            };
+        }
+        public static CompassDirection TurnRight(this CompassDirection direction)
+        {
+            return direction switch
+            {
+                CompassDirection.North => CompassDirection.East,
+                CompassDirection.South => CompassDirection.West,
+                CompassDirection.West => CompassDirection.North,
+                CompassDirection.East => CompassDirection.South,
+                _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+            };
+        }
+    }
+    
+    
     public static class EnumerableExtensions
     {
         public static IEnumerable<IEnumerable<T>> Permutations<T>(this IEnumerable<T> list, int length)
@@ -217,5 +253,4 @@ namespace AOC2020
         public static Dictionary<T1, T2> Clone<T1, T2>(this Dictionary<T1, T2> source) =>
             new Dictionary<T1, T2>(source);
     }
-
 }
