@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -195,6 +196,15 @@ namespace AOC2020
         
         public static IEnumerable<IEnumerable<T>> Permutations<T>(this IEnumerable<T> sequence) => 
             sequence.Permutations(sequence.Count());
+
+        public static IEnumerable<IEnumerable<T>> Combinations<T>(this IEnumerable<T> sequence) =>
+            Enumerable
+                .Range(0, (int) Math.Pow(2, sequence.Count()))
+                .Select(i =>
+                    sequence
+                        .Where((item, ix) => ((int) Math.Pow(2, ix) & i) > 0)
+                        .ToList()
+                );
 
         public static string JoinToStringNoSeparator(this IEnumerable<int> sequence) =>
             string.Join("", sequence);
