@@ -53,7 +53,7 @@ namespace AOC2020
                     fieldIndices.Remove(matchingFields[0]);
 
                     if (result.Keys.Count(k => k.StartsWith("departure")) == 6)
-                        //nasty hack to break the look as soon as all "departure" fields are identified
+                        //nasty hack to break the loop as soon as all "departure" fields are identified
                         return result;
 
                 }
