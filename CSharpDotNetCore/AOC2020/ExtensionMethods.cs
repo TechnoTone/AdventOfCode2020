@@ -224,6 +224,9 @@ namespace AOC2020
 
         public static (T, T) Range<T>(this IEnumerable<T> sequence) =>
             (sequence.Min(), sequence.Max());
+
+        public static IEnumerable<string> IgnoreEmptyLines(this IEnumerable<string> sequence) => 
+            sequence.Where(s => !string.IsNullOrEmpty(s));
     }
 
     public static class ListExtensions
