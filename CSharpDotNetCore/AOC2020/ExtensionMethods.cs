@@ -17,6 +17,14 @@ namespace AOC2020
         }
     }
 
+    public static class IntExtensions
+    {
+        public static void Repeat(this int i, Action a)
+        {
+            for (var n = 0; n < i; n++) a();
+        }
+    }
+    
     public static class StringExtensions
     {
         public static List<long> ParseCommaSeparatedIntegers(this string input) =>

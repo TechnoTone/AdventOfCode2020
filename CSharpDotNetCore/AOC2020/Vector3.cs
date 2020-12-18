@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using static System.Math;
 
 namespace AOC2020
 {
+    [DebuggerDisplay("{ToString()}")]
     public class Vector3 : IEquatable<Vector3>
     {
         public int X { get; private set; }
@@ -31,6 +33,7 @@ namespace AOC2020
             return $"{f(X)}, {f(Y)}, {f(Z)}";
         }
 
+        
         public bool Equals(Vector3 other)
         {
             if (ReferenceEquals(null, other)) return false;
