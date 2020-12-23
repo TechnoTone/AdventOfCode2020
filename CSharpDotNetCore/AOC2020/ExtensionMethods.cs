@@ -32,6 +32,9 @@ namespace AOC2020
 
         public static string[] Lines(this string input) =>
             input.Replace("\r", "").Split("\n");
+
+        public static string ReversString(this string input) =>
+            new string(input.Reverse().ToArray());
     }
 
     public static class PointExtensions
@@ -235,6 +238,18 @@ namespace AOC2020
 
         public static IEnumerable<string> IgnoreEmptyLines(this IEnumerable<string> sequence) => 
             sequence.Where(s => !string.IsNullOrEmpty(s));
+
+        public static long Product(this IEnumerable<int> sequence) =>
+            sequence.Select(x => (long) x).Aggregate((a, b) => a * b);
+
+        public static long Product(this IEnumerable<long> sequence) =>
+            sequence.Aggregate((a, b) => a * b);
+
+        public static Queue<T> ToQueue<T>(this IEnumerable<T> sequence) => 
+            new Queue<T>(sequence);
+
+        public static int GetSequenceHashCode<T>(this IEnumerable<T> sequence) => 
+            sequence.Select(x => x.GetHashCode()).Aggregate(HashCode.Combine);
     }
 
     public static class ListExtensions
@@ -273,5 +288,12 @@ namespace AOC2020
     {
         public static Dictionary<T1, T2> Clone<T1, T2>(this Dictionary<T1, T2> source) =>
             new Dictionary<T1, T2>(source);
+    }
+
+
+    public static class LinkedListExtension
+    {
+        public static LinkedListNode<T> NextCircular<T>(this LinkedListNode<T> current) =>
+            current.Next ?? current.List.First;
     }
 }
